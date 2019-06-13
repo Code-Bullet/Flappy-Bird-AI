@@ -82,11 +82,13 @@ class Player {
     //this.pipeRange -= 1;
     //if either pipe is off the screen then reset the pipe
     if (this.pipes1.offScreen()) {
+      console.log('player - pipes1 offscreen')
       this.pipes1 = new PipePair(false, this.pipes2, this.pipeRandomNo);
       this.pipeRandomNo++;
     }
     if (this.pipes2.offScreen()) {
-      this.pipes1 = new PipePair(false, this.pipes2, this.pipeRandomNo);
+      console.log('player - pipes2 offscreen')
+      this.pipes1 = new PipePair(false, this.pipes1, this.pipeRandomNo);
       this.pipeRandomNo++;
     }
   }
