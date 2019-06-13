@@ -83,7 +83,7 @@ function draw() {
       population.naturalSelection();
     }
   }
-  // writeInfo();
+  writeInfo();
 }
 //-----------------------------------------------------------------------------------
 function showBestPlayersForEachGeneration() {
@@ -152,6 +152,7 @@ function drawBrain() { //show the brain of whatever genome is currently showing
     showBrain = false;
   } else if (showBestEachGen) {
     genPlayerTemp.brain.drawGenome(startX, startY, w, h);
+    writeInfo()
   } else {
     population.players[0].brain.drawGenome(startX, startY, w, h);
   }
