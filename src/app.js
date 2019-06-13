@@ -15,7 +15,9 @@ app.set('views', viewsPath)
 
 // Routes
 app.get('', (req, res) => {
-  res.render('index.html')
+  res.render('index', {
+    title: 'Flappy Bird AI'
+  })
 })
 
 // Run server
