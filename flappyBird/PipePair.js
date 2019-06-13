@@ -19,8 +19,8 @@ class PipePair {
       }
     }
     this.bottomHeight = canvas.height - this.topHeight - this.gap;
-    this.bottomPipe = new Pipe(false, this.bottomHeight);
-    this.topPipe = new Pipe(true, this.topHeight);
+    this.bottomPipe = new Pipe(false, this.bottomHeight, upToRandNo);
+    this.topPipe = new Pipe(true, this.topHeight, upToRandNo);
   }
 
 
@@ -39,7 +39,8 @@ class PipePair {
 
 
   offScreen() {
-    if (this.bottomPipe.x + this.bottomPipe.width < -1000) {
+    if (this.bottomPipe.x + this.bottomPipe.width < -300) {
+      console.log('offscreen')
       return true;
     }
     return false;
