@@ -4,7 +4,7 @@ class PipePair {
     this.gap = 160;
     this.maxPipeDifference = 300;
     this.passed = false;
-    this.upToRandNo = upToRandNo
+    this.upToRandNo = upToRandNo;
     if (firstPipe) {
       this.topHeight = (canvas.height - 30) / 2 - this.gap / 2;
     } else {
@@ -20,8 +20,10 @@ class PipePair {
       }
     }
     this.bottomHeight = canvas.height - this.topHeight - this.gap;
-    this.bottomPipe = new Pipe(false, this.bottomHeight, upToRandNo);
-    this.topPipe = new Pipe(true, this.topHeight, upToRandNo);
+    this.bottomPipe = new Pipe(false, this.bottomHeight, this.upToRandNo);
+    console.log('bottomPipe speed', this.bottomPipe.panSpeed);
+    this.topPipe = new Pipe(true, this.topHeight, this.upToRandNo);
+    console.log('topPipe speed', this.topPipe.panSpeed);
   }
 
 
@@ -41,6 +43,8 @@ class PipePair {
 
   offScreen() {
     if (this.bottomPipe.x + this.bottomPipe.width < 0) {
+      this.bottomPipe = new Pipe(false, this.bottomHeight, this.upToRandNo);
+      this.topPipe = new Pipe(true, this.topHeight, this.upToRandNo);
       return true;
     }
     return false;
