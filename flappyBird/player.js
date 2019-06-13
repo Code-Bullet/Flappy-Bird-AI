@@ -15,8 +15,8 @@ class Player {
     this.pipes2 = new PipePair(false, this.pipes1, this.pipeRandomNo);
     this.pipes2.setX(1.5 * canvas.width + this.pipes2.topPipe.width / 2);
     this.pipeRandomNo++;
-    this.pipeInhib = 50;
-    this.pipeRange = random(240, 300);
+    //this.pipeInhib = 50;
+    //this.pipeRange = random(240, 300);
     this.ground = new Ground();
 
 
@@ -79,21 +79,15 @@ class Player {
     this.pipes1.update();
     this.pipes2.update();
     this.ground.update();
-    this.pipeRange -= 1;
+    //this.pipeRange -= 1;
     //if either pipe is off the screen then reset the pipe
     if (this.pipes1.offScreen()) {
-      if (this.pipeRange == 0) {
-        this.pipes1 = new PipePair(false, this.pipes2, this.pipeRandomNo);
-        this.pipeRandomNo++;
-        this.pipeRange = random(300, 1000)
-      }
+      this.pipes1 = new PipePair(false, this.pipes2, this.pipeRandomNo);
+      this.pipeRandomNo++;
     }
     if (this.pipes2.offScreen()) {
-      if (this.pipeRange == 0) {
-        this.pipes1 = new PipePair(false, this.pipes2, this.pipeRandomNo);
-        this.pipeRandomNo++;
-        this.pipeRange = random(300, 1000)
-      }
+      this.pipes1 = new PipePair(false, this.pipes2, this.pipeRandomNo);
+      this.pipeRandomNo++;
     }
   }
 
