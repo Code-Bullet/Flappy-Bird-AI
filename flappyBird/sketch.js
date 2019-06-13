@@ -18,7 +18,7 @@ var dieOff = false;
 
 var nextConnectionNo = 1000;
 var population;
-var speed = 30;
+var speed = 60;
 
 var superSpeed = 1;
 var showBest = false; //true if only show the best of the previous generation
@@ -62,7 +62,7 @@ function setup() {
 
   pauseBecauseDead = false;
 
-  population = new Population(1);
+  population = new Population(10);
   humanPlayer = new Player();
 }
 
