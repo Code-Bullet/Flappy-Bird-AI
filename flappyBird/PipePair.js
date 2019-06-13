@@ -4,6 +4,7 @@ class PipePair {
     this.gap = 160;
     this.maxPipeDifference = 300;
     this.passed = false;
+    this.upToRandNo = upToRandNo
     if (firstPipe) {
       this.topHeight = (canvas.height - 30) / 2 - this.gap / 2;
     } else {
