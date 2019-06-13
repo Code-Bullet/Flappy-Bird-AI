@@ -23,7 +23,7 @@ class Pipe {
   }
 
   update() {
-    this.x -= 10;
+    this.x -= 6;
   }
 
   colided(p) {
