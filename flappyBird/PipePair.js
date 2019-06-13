@@ -39,7 +39,7 @@ class PipePair {
 
 
   offScreen() {
-    if (this.bottomPipe.x + this.bottomPipe.width < -300) {
+    if (this.bottomPipe.x + this.bottomPipe.width < -100) {
       console.log('offscreen')
       return true;
     }
