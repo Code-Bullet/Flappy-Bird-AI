@@ -15,6 +15,8 @@ class Player {
     this.pipes2 = new PipePair(false, this.pipes1, this.pipeRandomNo);
     this.pipes2.setX(1.5 * canvas.width + this.pipes2.topPipe.width / 2);
     this.pipeRandomNo++;
+    this.pipeInhib = 50;
+    this.pipeRange = random(300, 1000);
     this.ground = new Ground();
 
 
@@ -34,7 +36,6 @@ class Player {
     this.genomeOutputs = 1;
     this.brain = new Genome(this.genomeInputs, this.genomeOutputs);
   }
-
 
   show() {
 
@@ -72,18 +73,27 @@ class Player {
 
   }
 
+  newPipeRange() {}
+
   updatePipes() {
     this.pipes1.update();
     this.pipes2.update();
     this.ground.update();
+    this.pipeRange -= 1;
     //if either pipe is off the screen then reset the pipe
     if (this.pipes1.offScreen()) {
-      this.pipes1 = new PipePair(false, this.pipes2, this.pipeRandomNo);
-      this.pipeRandomNo++;
+      if (this.pipeRange == 0) {
+        this.pipes1 = new PipePair(false, this.pipes2, this.pipeRandomNo);
+        this.pipeRandomNo++;
+        this.pipeRange = random(300, 1000)
+      }
     }
     if (this.pipes2.offScreen()) {
-      this.pipes2 = new PipePair(false, this.pipes1, this.pipeRandomNo);
-      this.pipeRandomNo++;
+      if (this.pipeRange == 0) {
+        this.pipes1 = new PipePair(false, this.pipes2, this.pipeRandomNo);
+        this.pipeRandomNo++;
+        this.pipeRange = random(300, 1000)
+      }
     }
   }
 
