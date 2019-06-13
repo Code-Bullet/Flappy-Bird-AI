@@ -18,7 +18,7 @@ var dieOff = false;
 
 var nextConnectionNo = 1000;
 var population;
-var speed = 40;
+var speed = 30;
 
 var superSpeed = 1;
 var showBest = false; //true if only show the best of the previous generation
@@ -222,6 +222,16 @@ function keyPressed() {
         print(speed);
       }
       break;
+    case 'Q':  //speed up framerate substantially
+      speed += 60;
+      frameRate(speed);
+      print(speed);
+    case 'E':  //slow down framerate substantially
+      if (speed > 60) {
+        speed -= 60;
+        frameRate(speed);
+        print(speed);
+      }
     case 'B': //run the best
       runBest = !runBest;
       break;
