@@ -1,10 +1,11 @@
 class Pipe {
-  constructor(isTop, height) {
+  constructor(isTop, height, upToRandNo) {
     this.width = 100;
     this.height = height;
     this.x = canvas.width;
     this.isTop = isTop;
-    this.randomMultiplier = random(3);
+    this.randomMultiplier = random(1);
+    this.pipeNum = upToRandNo
     if (isTop) {
       this.topY = 0;
       this.bottomY = this.height;
@@ -27,7 +28,13 @@ class Pipe {
   }
 
   update() {
-    this.x -= panSpeed * this.randomMultiplier;
+    //this.x -= panSpeed * this.randomMultiplier;
+
+    if (this.pipeNum <= 100) {
+      this.x -= 2 + (this.pipeNum / 4)
+    } else {
+      this.x -= 2
+    }
   }
 
   colided(p) {
