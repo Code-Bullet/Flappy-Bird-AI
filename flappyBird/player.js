@@ -88,7 +88,7 @@ class Player {
     }
     if (this.pipes2.offScreen()) {
       console.log('player - pipes2 offscreen')
-      this.pipes1 = new PipePair(false, this.pipes1, this.pipeRandomNo);
+      this.pipes2 = new PipePair(false, this.pipes1, this.pipeRandomNo);
       this.pipeRandomNo++;
     }
   }
