@@ -1,5 +1,5 @@
 class Pipe {
-  constructor(isTop, height, upToRandNo) {
+  constructor(isTop, height) {
     this.width = 100;
     this.height = height;
     this.x = canvas.width;

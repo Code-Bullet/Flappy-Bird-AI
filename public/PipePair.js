@@ -4,14 +4,13 @@ class PipePair {
     this.gap = 160;
     this.maxPipeDifference = 300;
     this.passed = false;
-    this.upToRandNo = upToRandNo;
     if (firstPipe) {
       this.topHeight = (canvas.height - 30) / 2 - this.gap / 2;
     } else {
       if (randomPipeHeights.length >= upToRandNo) {
         randomPipeHeights.push(floor(random(minDistFromEdge, canvas.height - minDistFromEdge - 30 - this.gap)));
       }
-      this.topHeight = randomPipeHeights[upToRandNo]; //floor(random(minDistFromEdge, canvas.height - minDistFromEdge - 30 - this.gap));
+      this.topHeight = randomPipeHeights[upToRandNo];
       if (previousPipe) {
         while (abs(this.topHeight - previousPipe.topHeight) > this.maxPipeDifference) {
           randomPipeHeights[upToRandNo] = floor(random(minDistFromEdge, canvas.height - minDistFromEdge - 30 - this.gap));
@@ -20,10 +19,8 @@ class PipePair {
       }
     }
     this.bottomHeight = canvas.height - this.topHeight - this.gap;
-    this.bottomPipe = new Pipe(false, this.bottomHeight, this.upToRandNo);
-    console.log('bottomPipe speed', this.bottomPipe.panSpeed);
-    this.topPipe = new Pipe(true, this.topHeight, this.upToRandNo);
-    console.log('topPipe speed', this.topPipe.panSpeed);
+    this.bottomPipe = new Pipe(false, this.bottomHeight);
+    this.topPipe = new Pipe(true, this.topHeight);
   }
 
 
@@ -43,8 +40,8 @@ class PipePair {
 
   offScreen() {
     if (this.bottomPipe.x + this.bottomPipe.width < 0) {
-      this.bottomPipe = new Pipe(false, this.bottomHeight, this.upToRandNo);
-      this.topPipe = new Pipe(true, this.topHeight, this.upToRandNo);
+      this.bottomPipe = new Pipe(false, this.bottomHeight);
+      this.topPipe = new Pipe(true, this.topHeight);
       return true;
     }
     return false;
