@@ -15,8 +15,6 @@ class Player {
     this.pipes2 = new PipePair(false, this.pipes1, this.pipeRandomNo);
     this.pipes2.setX(1.5 * canvas.width + this.pipes2.topPipe.width / 2);
     this.pipeRandomNo++;
-    //this.pipeInhib = 50;
-    //this.pipeRange = random(240, 300);
     this.ground = new Ground();
 
 
@@ -50,7 +48,6 @@ class Player {
       this.fallRotation += PI / 8.0;
       this.fallRotation = constrain(this.fallRotation, -PI / 6, PI / 2);
       rotate(this.fallRotation);
-      // rotate(map(this.velY, 10, 25, -PI / 6, PI / 2));
     } else {
       rotate(PI / 2);
     }
@@ -73,13 +70,10 @@ class Player {
 
   }
 
-  newPipeRange() {}
-
   updatePipes() {
     this.pipes1.update();
     this.pipes2.update();
     this.ground.update();
-    //this.pipeRange -= 1;
     //if either pipe is off the screen then reset the pipe
     if (this.pipes1.offScreen()) {
       this.pipes1 = new PipePair(false, this.pipes2, this.pipeRandomNo);
