@@ -18,7 +18,7 @@ var dieOff = false;
 
 var nextConnectionNo = 1000;
 var population;
-var speed = 60;
+var speed = 40;
 
 var superSpeed = 1;
 var showBest = false; //true if only show the best of the previous generation
