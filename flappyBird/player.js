@@ -16,7 +16,7 @@ class Player {
     this.pipes2.setX(1.5 * canvas.width + this.pipes2.topPipe.width / 2);
     this.pipeRandomNo++;
     this.pipeInhib = 50;
-    this.pipeRange = random(300, 1000);
+    this.pipeRange = random(240, 300);
     this.ground = new Ground();
 
 
