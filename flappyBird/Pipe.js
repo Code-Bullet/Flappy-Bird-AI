@@ -30,11 +30,11 @@ class Pipe {
   update() {
     //this.x -= panSpeed * this.randomMultiplier;
 
-    if (this.pipeNum <= 100) {
-      this.x -= 2 + (this.pipeNum / 4)
-    } else {
+    //if (this.pipeNum <= 100) {
+    //  this.x -= 2 + (this.pipeNum / 4)
+    //} else {
       this.x -= 2
-    }
+    //}
   }
 
   colided(p) {
