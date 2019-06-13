@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/RobbyB97/Flappy-Bird-AI#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "hbs": "^4.0.4"
   }
 }
