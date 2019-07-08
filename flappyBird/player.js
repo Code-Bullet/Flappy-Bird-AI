@@ -182,7 +182,7 @@ class Player {
       //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<replace
     }
     //---------------------------------------------------------------------------------------------------------------------------------------------------------
-    //returns a clone of this player with the same brian
+    //returns a clone of this player with the same brain
   clone() {
     var clone = new Player();
     clone.brain = this.brain.clone();
@@ -211,7 +211,7 @@ class Player {
   }
 
   //---------------------------------------------------------------------------------------------------------------------------------------------------------
-  //fot Genetic algorithm
+  //for Genetic algorithm
   calculateFitness() {
     this.fitness = 1 + this.score * this.score + this.lifespan / 20.0;
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<replace
