@@ -35,7 +35,6 @@ class Player {
     this.brain = new Genome(this.genomeInputs, this.genomeOutputs);
   }
 
-
   show() {
 
     this.pipes1.show();
@@ -49,7 +48,6 @@ class Player {
       this.fallRotation += PI / 8.0;
       this.fallRotation = constrain(this.fallRotation, -PI / 6, PI / 2);
       rotate(this.fallRotation);
-      // rotate(map(this.velY, 10, 25, -PI / 6, PI / 2));
     } else {
       rotate(PI / 2);
     }

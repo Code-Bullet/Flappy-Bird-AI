@@ -62,7 +62,7 @@ function setup() {
 
   pauseBecauseDead = false;
 
-  population = new Population(1000);
+  population = new Population(10);
   humanPlayer = new Player();
 }
 
@@ -83,7 +83,7 @@ function draw() {
       population.naturalSelection();
     }
   }
-  // writeInfo();
+  writeInfo();
 }
 //-----------------------------------------------------------------------------------
 function showBestPlayersForEachGeneration() {
@@ -222,6 +222,16 @@ function keyPressed() {
         print(speed);
       }
       break;
+    case 'Q':  //speed up framerate substantially
+      speed += 60;
+      frameRate(speed);
+      print(speed);
+    case 'E':  //slow down framerate substantially
+      if (speed > 60) {
+        speed -= 60;
+        frameRate(speed);
+        print(speed);
+      }
     case 'B': //run the best
       runBest = !runBest;
       break;

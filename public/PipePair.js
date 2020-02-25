@@ -10,7 +10,7 @@ class PipePair {
       if (randomPipeHeights.length >= upToRandNo) {
         randomPipeHeights.push(floor(random(minDistFromEdge, canvas.height - minDistFromEdge - 30 - this.gap)));
       }
-      this.topHeight = randomPipeHeights[upToRandNo]; //floor(random(minDistFromEdge, canvas.height - minDistFromEdge - 30 - this.gap));
+      this.topHeight = randomPipeHeights[upToRandNo];
       if (previousPipe) {
         while (abs(this.topHeight - previousPipe.topHeight) > this.maxPipeDifference) {
           randomPipeHeights[upToRandNo] = floor(random(minDistFromEdge, canvas.height - minDistFromEdge - 30 - this.gap));
@@ -40,6 +40,8 @@ class PipePair {
 
   offScreen() {
     if (this.bottomPipe.x + this.bottomPipe.width < 0) {
+      this.bottomPipe = new Pipe(false, this.bottomHeight);
+      this.topPipe = new Pipe(true, this.topHeight);
       return true;
     }
     return false;
