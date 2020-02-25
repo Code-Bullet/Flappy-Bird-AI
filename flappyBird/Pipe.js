@@ -4,7 +4,7 @@ class Pipe {
     this.height = height;
     this.x = canvas.width;
     this.isTop = isTop;
-    this.randomMultiplier = random(5);
+    this.randomMultiplier = 1;
     if (isTop) {
       this.topY = 0;
       this.bottomY = this.height;
