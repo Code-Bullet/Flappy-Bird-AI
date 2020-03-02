@@ -1,4 +1,4 @@
-var panSpeed = 8;
+var panSpeed = 8 + (Math.random() * 5);
 var gravity = 3;
 var player;
 
@@ -36,7 +36,10 @@ var genPlayerTemp; //player
 var showNothing = false;
 
 var randomPipeHeights = [];
-var isChristmas = true;
+
+// Check if it's Christmas
+var today = new Date();
+var isChristmas = today.getDate() === 25 && today.getMonth() === 11;
 
 function preload() {
   if (isChristmas) {

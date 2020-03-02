@@ -4,7 +4,6 @@ class Pipe {
     this.height = height;
     this.x = canvas.width;
     this.isTop = isTop;
-    this.randomMultiplier = random(5);
     if (isTop) {
       this.topY = 0;
       this.bottomY = this.height;
@@ -27,7 +26,7 @@ class Pipe {
   }
 
   update() {
-    this.x -= panSpeed * this.randomMultiplier;
+    this.x -= panSpeed;
   }
 
   colided(p) {
